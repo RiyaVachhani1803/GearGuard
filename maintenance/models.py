@@ -23,7 +23,6 @@ class Equipment(models.Model):
     def __str__(self):
         return self.name
 
-
 class MaintenanceRequest(models.Model):
     REQUEST_TYPE = [
         ("CORRECTIVE", "Corrective"),
