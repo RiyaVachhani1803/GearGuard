@@ -1,4 +1,4 @@
-This is a web-based maintenance management system built using Django, Node.js (Express), and basic frontend technologies.
+This is a web-based maintenance management system built using Django, Node.js (Express), and basic frontend technologies.        
 The project helps manage equipment, maintenance requests, work centers, and task tracking using calendar and Kanban views.
 
 Project Structure
@@ -17,8 +17,8 @@ Kanban workflow management
 
 Technologies Used
 
-Django
-Node.js (Express)
-HTML, CSS, EJS
-SQLite, MySQL
-Git & GitHub
+Django         
+Node.js (Express)           
+HTML, CSS, EJS        
+SQLite, MySQL           
+Git & GitHub         
