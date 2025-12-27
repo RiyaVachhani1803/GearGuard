@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GearGuard – Maintenance Board</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: "Segoe UI", sans-serif;
+            background: #1b263b;
+            color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fefefe;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .column {
+            background: #354f52;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 400px;
+        }
+
+        .column h3 {
+            text-align: center;
+            color: #f4a261; /* muted orange */
+            margin-bottom: 15px;
+        }
+
+        .card {
+            background: #f7f7f2; /* off-white */
+            color: #222;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .card b {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.2s;
+            color: white;
+        }
+
+        .btn-progress {
+            background: #e76f51; /* muted orange */
+        }
+
+        .btn-progress:hover {
+            background: #d65f42;
+        }
+
+        .btn-done {
+            background: #2a9d8f;
+        }
+
+        .btn-done:hover {
+            background: #21867a;
+        }
+
+        .btn-scrap {
+            background: #8d0801;
+        }
+
+        .btn-scrap:hover {
+            background: #6e0601;
+        }
+
+        .empty {
+            opacity: 0.5;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🛠️ Maintenance Board</h1>
+
+<a href="/requests/new/" class="btn btn-progress" style="margin-bottom:20px; display:inline-block;">
+    + New Maintenance Request
+</a>
+
+
+<div class="board">
+
+    <!-- NEW -->
+    <div class="column">
+        <h3>New</h3>
+        {% for r in new %}
+        <div class="card">
+            <b>{{ r.subject }}</b>
+            {{ r.equipment }}
+
+            <div class="actions">
+                <a class="btn btn-progress"
+                   href="{% url 'update_status' r.id 'IN_PROGRESS' %}">
+                    Start
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="empty">No new requests</p>
+        {% endfor %}
+    </div>
+
+    <!-- IN PROGRESS -->
+    <div class="column">
+        <h3>In Progress</h3>
+        {% for r in in_progress %}
+        <div class="card">
+            <b>{{ r.subject }}</b>
+            {{ r.equipment }}
+
+            <div class="actions">
+                <a class="btn btn-done"
+                   href="{% url 'update_status' r.id 'REPAIRED' %}">
+                    Repaired
+                </a>
+
+                <a class="btn btn-scrap"
+                   href="{% url 'update_status' r.id 'SCRAP' %}">
+                    Scrap
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="empty">No active work</p>
+        {% endfor %}
+    </div>
+
+    <!-- REPAIRED -->
+    <div class="column">
+        <h3>Repaired</h3>
+        {% for r in repaired %}
+        <div class="card">
+            <b>{{ r.subject }}</b>
+            {{ r.equipment }}
+        </div>
+        {% empty %}
+        <p class="empty">Nothing repaired yet</p>
+        {% endfor %}
+    </div>
+
+    <!-- SCRAP -->
+    <div class="column">
+        <h3>Scrap</h3>
+        {% for r in scrap %}
+        <div class="card">
+            <b>{{ r.subject }}</b>
+            {{ r.equipment }}
+        </div>
+        {% empty %}
+        <p class="empty">No scrapped items</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>
