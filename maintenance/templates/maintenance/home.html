@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GearGuard Dashboard</title>
+    <style>
+        body {
+            font-family: Segoe UI;
+            background: #1b263b;
+            color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        a.card {
+            background: #354f52;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+        }
+
+        a.card:hover {
+            background: #3f5f63;
+        }
+
+        .title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #f4a261;
+        }
+    </style>
+</head>
+<body>
+
+<h1>⚙️ GearGuard Dashboard</h1>
+
+<div class="grid">
+    <a class="card" href="/requests/">
+        <div class="title">Maintenance Board</div>
+        Track and manage all maintenance requests
+    </a>
+
+    <a class="card" href="/requests/new/">
+        <div class="title">Create Request</div>
+        Add a new maintenance request
+    </a>
+
+    <a class="card" href="/equipment/">
+        <div class="title">Equipment</div>
+        View and manage equipment
+    </a>
+
+    <a class="card" href="/calendar/">
+        <div class="title">Calendar</div>
+        Preventive maintenance schedule
+    </a>
+</div>
+
+</body>
+</html>
