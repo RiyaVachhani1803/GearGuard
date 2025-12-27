@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forgot Password | GearGuard</title>
+  <link rel="stylesheet" href="/css/signupLogin.css">
+</head>
+<body>
+
+<form method="POST" action="/auth/forgotPass">
+
+  <div class="brand">
+    GearGuard
+  </div>
+
+  <h2>Forgot Password</h2>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <% if (success) { %>
+    <p class="success"><%= success %></p>
+  <% } %>
+
+  <input type="email" name="email" placeholder="Enter your registered email" required />
+
+  <button type="submit">Submit</button>
+
+  <div class="auth-links">
+    <a href="/login">Back to Login</a>
+  </div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/signupLogin.css">
+
+<form method="POST" action="/auth/signup">
+
+  <div class="brand">
+    GearGuard
+  </div>
+
+  <h2>Sign Up</h2>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <% if (success) { %>
+    <p class="success"><%= success %></p>
+  <% } %>
+
+  <input name="name" placeholder="Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" name="password" placeholder="Password" required />
+  <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+
+  <button type="submit">Create Account</button>
+</form>
