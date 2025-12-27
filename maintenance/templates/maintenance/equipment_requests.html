@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ equipment.name }} – Maintenance</title>
+</head>
+<body style="font-family:Segoe UI; background: #1b263b; color:white; padding:20px;">
+
+<h2>{{ equipment.name }} – Maintenance Requests</h2>
+
+<ul>
+    {% for r in requests %}
+        <li>
+            <b>{{ r.subject }}</b> —
+            {{ r.status }} —
+            {{ r.request_type }}
+        </li>
+    {% empty %}
+        <li>No maintenance requests yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="/equipment/" style="color:#f4a261;"> Back to equipment</a>
+
+</body>
+</html>
