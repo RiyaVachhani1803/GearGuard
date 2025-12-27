@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equipment</title>
+    <style>
+        body {
+            font-family: Segoe UI;
+            background: #1b263b;
+            color: #f5f5f5;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #354f52;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #3a5a40;
+        }
+
+        tr:nth-child(even) {
+            background: #3f5f63;
+        }
+
+        a.btn {
+            padding: 6px 10px;
+            background: #e76f51;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Equipment List</h2>
+<a href="/equipment/new/" class="btn" style="margin-bottom:15px; display:inline-block;">
+    + Add Equipment
+</a>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Team</th>
+        <th>Maintenance</th>
+    </tr>
+
+    {% for e in equipments %}
+    <tr>
+        <td>{{ e.name }}</td>
+        <td>{{ e.department }}</td>
+        <td>{{ e.maintenance_team }}</td>
+        <td>
+            <a class="btn" href="{% url 'equipment_requests' e.id %}">
+                Maintenance ({{ e.maintenancerequest_set.count }})
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
