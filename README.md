@@ -4,7 +4,9 @@ The project helps manage equipment, maintenance requests, work centers, and task
 Project Structure
 
 Django – Maintenance logic (equipment, work centers, calendar, Kanban)
+
 Node.js (Express) – User authentication
+
 Frontend – HTML, CSS, EJS templates
 
 Features
