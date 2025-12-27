@@ -3,19 +3,17 @@ The project helps manage equipment, maintenance requests, work centers, and task
 
 Project Structure
 
-Django – Maintenance logic (equipment, work centers, calendar, Kanban)
-
-Node.js (Express) – User authentication
-
-Frontend – HTML, CSS, EJS templates
+Django – Maintenance logic (equipment, work centers, calendar, Kanban)      
+Node.js (Express) – User authentication      
+Frontend – HTML, CSS, EJS templates     
 
 Features
 
-User authentication (Signup, Login, Forgot Password)
-Equipment and work center management
-Maintenance request tracking
-Calendar-based scheduling
-Kanban workflow management
+User authentication (Signup, Login, Forgot Password)      
+Equipment and work center management     
+Maintenance request tracking      
+Calendar-based scheduling      
+Kanban workflow management      
 
 Technologies Used
 
