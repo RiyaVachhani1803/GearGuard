@@ -106,7 +106,6 @@ router.post("/forgotPass", async (req, res) => {
     });
   }
 
- 
   return res.render("forgotPass", {
     error: null,
     success: "Password reset instructions have been sent to your email"
