@@ -113,5 +113,4 @@ router.post("/forgotPass", async (req, res) => {
   });
 });
 
-
 module.exports = router;
